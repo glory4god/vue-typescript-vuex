@@ -43,9 +43,15 @@ export default defineComponent({
     };
   },
   methods: {
-    submit(word: string) {
+    submit(word: string): void {
       if (this.currentWord[this.currentWord.length - 1] === this.temp[0]) {
-        store.commit('addRecordList', {
+        // mutations => commit
+        // store.commit('addRecordList', {
+        //   prev: this.currentWord,
+        //   current: this.temp,
+        // });
+        // 비동기 방법 action => dispatch
+        store.dispatch('addRecordListAsync', {
           prev: this.currentWord,
           current: this.temp,
         });
@@ -53,18 +59,18 @@ export default defineComponent({
       }
       this.temp = '';
     },
-    reset() {
+    reset(): void {
       store.commit('reset');
     },
   },
   computed: {
-    currentWord() {
+    currentWord(): string {
       return store.state.currentWord;
     },
-    currentWordLength() {
+    currentWordLength(): number {
       return store.getters.lengthToWord;
     },
-    recordList() {
+    recordList(): Record[] {
       return store.state.recordList;
     },
   },
