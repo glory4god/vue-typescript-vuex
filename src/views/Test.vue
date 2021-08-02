@@ -18,6 +18,14 @@
     </ol>
     <button @click="reset">다시 시작</button>
   </div>
+  <div class="transition_test"><h2>transition test</h2></div>
+
+  <button @click.prevent="showHandler">{{ button }}</button>
+  <transition name="modal">
+    <p v-if="show" style="background-color: red; width: 300px; height: 300px">
+      트랜지션!!!!!!
+    </p>
+  </transition>
 </template>
 
 <script lang="ts">
@@ -40,6 +48,8 @@ export default defineComponent({
     return {
       msg: '끝말잇기 by Vuex',
       temp: '',
+      button: 'on',
+      show: false,
     };
   },
   methods: {
@@ -62,6 +72,14 @@ export default defineComponent({
     reset(): void {
       store.commit('reset');
     },
+    showHandler(): void {
+      this.show = !this.show;
+      if (this.button === 'on') {
+        this.button = 'off';
+      } else {
+        this.button = 'on';
+      }
+    },
   },
   computed: {
     currentWord(): string {
@@ -80,5 +98,8 @@ export default defineComponent({
 <style>
 .title {
   margin-top: 2rem;
+}
+.transition_test {
+  margin-top: 3rem;
 }
 </style>
