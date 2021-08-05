@@ -22,6 +22,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Vuex-Async',
     component: () => import('../views/VuexAsync.vue'),
   },
+  {
+    path: '/vuex-mixins',
+    name: 'Vuex-Mixins',
+    component: () => import('../views/VuexMixins.vue'),
+  },
 ];
 
 const router = createRouter({
