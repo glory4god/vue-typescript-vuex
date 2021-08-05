@@ -26,6 +26,14 @@
       트랜지션!!!!!!
     </p>
   </transition>
+  <iframe
+    src="https://youtu.be/FjW04lm8clw"
+    width="500"
+    height="500"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
 </template>
 
 <script lang="ts">
