@@ -1,9 +1,16 @@
 <template>
-  <div>{{ getData }}</div>
-  <div>data : {{ randomList }}</div>
-  <div>vuex : {{ getVuexRandom }}</div>
-  <button @click="interval">random</button>
-  <button @click="vuexInterval">vuexRandom</button>
+  <div>
+    <h2>{{ getData }}</h2>
+    <div>data : {{ randomList }}</div>
+    <div>vuex : {{ getVuexRandom }}</div>
+    <button @click="interval">random</button>
+    <button @click="vuexInterval">vuexRandom</button>
+  </div>
+  <div>
+    <h2>array.sort practice</h2>
+    <div>{{ sortListUp() }}</div>
+    <div>{{ sortListDown() }}</div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -15,6 +22,7 @@ export default defineComponent({
   data() {
     return {
       randomList: [] as number[],
+      list: [1, 6, 2, 3, 5, 7, 1, 30],
     };
   },
   methods: {
@@ -32,6 +40,17 @@ export default defineComponent({
     // vuex interval
     vuexInterval() {
       store.dispatch('interval');
+    },
+
+    sortListUp() {
+      return this.list.sort((prev, curr) => {
+        return prev - curr;
+      });
+    },
+    sortListDown() {
+      return this.list.sort((prev, curr) => {
+        return curr - prev;
+      });
     },
   },
   computed: {

@@ -8,6 +8,7 @@ export default createStore({
     recordList: [] as Record[],
     numberList: [] as number[],
     randomList: [] as number[],
+    mixinsMsg: 'mixins 첫 테스트!!' as string,
   },
   mutations: {
     setWord(state, word: string) {
@@ -30,6 +31,9 @@ export default createStore({
   getters: {
     lengthToWord(state): number {
       return state.currentWord.length;
+    },
+    getMixinsMsg(state) {
+      return state.mixinsMsg;
     },
   },
   actions: {
